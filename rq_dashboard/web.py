@@ -26,7 +26,8 @@ from rq import (Queue, Worker, cancel_job, get_failed_queue, pop_connection,
                 push_connection, requeue_job)
 from rq.job import Job
 from six import string_types
-
+Queue.redis_queues_keys = "resque:queues"
+Queue.redis_queue_namespace_prefix = "resque:queue:"
 from flask import Blueprint, current_app, render_template, url_for
 
 blueprint = Blueprint(
